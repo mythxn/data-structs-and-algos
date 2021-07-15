@@ -13,9 +13,7 @@ class HashTable:
 
     # using ascii values
     def get_hash(self, key):
-        h = 0
-        for char in key:
-            h += ord(char)
+        h = sum(ord(char) for char in key)
         return h % self.MAX
 
     # 0(1)
