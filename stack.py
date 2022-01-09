@@ -42,20 +42,12 @@ class Stack:
             probe -= 1
 
     def push(self, value):
-        """
-         adds an element to the stack.
-         Time Complexity: O(1)
-        """
         self._top += 1
         if self._top == len(self._array):
             self._expand()
         self._array[self._top] = value
 
     def pop(self):
-        """
-         removes and returns the last element of the stack.
-         Time Complexity: O(1)
-        """
         if self.is_empty():
             raise IndexError("stack is empty")
         value = self._array[self._top]
@@ -63,17 +55,9 @@ class Stack:
         return value
 
     def peek(self):
-        """
-         returns the current top element of the stack.
-         Time Complexity: O(1)
-        """
         if self.is_empty():
             raise IndexError("stack is empty")
         return self._array[self._top]
 
     def _expand(self):
-        """
-         expands size of the array.
-         Time Complexity: O(n)
-        """
         self._array += [None] * len(self._array)  # double the size of the array
