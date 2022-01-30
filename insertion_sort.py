@@ -1,9 +1,16 @@
 def insertion_sort(arr):
-    # Θ(n^2)
+    """ Insertion Sort (stable/in-place)
+            Complexity: O(n^2)
+    """
+    # start from 2nd element so we have a prev
     for i in range(1, len(arr)):
-        pointer = arr[i]
-        j = i - 1
-        while j >= 0 and pointer < arr[j]:
-            arr[j + 1] = arr[j]
-            j = j - 1
-        arr[j + 1] = pointer
+        cur_p = arr[i]
+        prev = i - 1
+
+        # shift prev bigger values right one step
+        while prev >= 0 and cur_p < arr[prev]:
+            arr[prev + 1] = arr[prev]
+            prev = prev - 1
+
+        # then place cur_p right before bigger vals start
+        arr[prev + 1] = cur_p
