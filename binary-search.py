@@ -1,27 +1,22 @@
 # 0(n)
-def linear_search(numbers_list, number_to_find):
-    for index, element in enumerate(numbers_list):
-        if element == number_to_find:
-            return index
+def linear_search(nums, target):
+    for i, e in enumerate(nums):
+        if e == target:
+            return i
     return -1
 
 
 # Θ(log(n))
-def binary_search(numbers_list, number_to_find):
-    left_index = 0
-    right_index = len(numbers_list) - 1
-    mid_index = 0
+def binary_search(nums, target):
+    left_p = 0
+    right_p = len(nums) - 1
 
-    while left_index <= right_index:
-        mid_index = (left_index + right_index) // 2
-        mid_number = numbers_list[mid_index]
-
-        if mid_number == number_to_find:
-            return mid_index
-
-        if mid_number < number_to_find:
-            left_index = mid_index + 1
+    while left_p <= right_p:
+        mid = (left_p + right_p) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left_p = mid + 1
         else:
-            right_index = mid_index - 1
-
+            right_p = mid - 1
     return -1
